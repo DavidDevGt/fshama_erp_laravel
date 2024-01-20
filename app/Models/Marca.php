@@ -16,4 +16,14 @@ class Marca extends Model
         'descripcion',
         'active',
     ];
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class, 'marca_id');
+    }
+
+    public function detallesFacturaProveedor()
+    {
+        return $this->hasMany(FacturaProveedorDetalle::class, 'marca_id');
+    }
 }
