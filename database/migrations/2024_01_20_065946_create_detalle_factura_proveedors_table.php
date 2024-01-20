@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('facturas_proveedor_d', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('factura_proveedor_id')->constrained('facturas_proveedor');
+            $table->foreignId('factura_proveedor_id')->constrained('factura_proveedores');
             $table->foreignId('producto_id')->constrained('productos');
             $table->integer('cantidad');
             $table->decimal('precio_compra', 10, 2);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detalle_factura_proveedors');
+        Schema::dropIfExists('facturas_proveedor_d');
     }
 };
